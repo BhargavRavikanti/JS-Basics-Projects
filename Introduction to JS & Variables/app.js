@@ -1,4 +1,10 @@
 /////////////////////////////////////
+/////////////////////////////////////
+// 0001 - Introduction to JS & Variables
+/////////////////////////////////////
+/////////////////////////////////////
+
+/////////////////////////////////////
 // 001 - DOM and Event Fundamentals
 /////////////////////////////////////
 
@@ -102,8 +108,107 @@
 
 // counter project start //
 
-function onIncrement() {}
-function onDecrement() {}
-function onReset() {}
+// =================================
+// method 1 - using onclick event
+// =================================
+/*
+let counterElement = document.getElementById("counterValue");
+
+function onIncrement() {
+  let previousCounterValue = counterElement.textContent;
+  let updatedCounterValue = parseInt(previousCounterValue) + 1;
+  counterElement.textContent = updatedCounterValue;
+
+  if (updatedCounterValue > 0) {
+    counterElement.style.color = "green";
+  } else if (updatedCounterValue < 0) {
+    counterElement.style.color = "red";
+  } else {
+    counterElement.style.color = "black";
+  }
+}
+
+function onDecrement() {
+  let previousCounterValue = counterElement.textContent;
+  let updatedCounterValue = parseInt(previousCounterValue) - 1;
+  counterElement.textContent = updatedCounterValue;
+
+  if (updatedCounterValue > 0) {
+    counterElement.style.color = "green";
+  } else if (updatedCounterValue < 0) {
+    counterElement.style.color = "red";
+  } else {
+    counterElement.style.color = "black";
+  }
+}
+
+function onReset() {
+  // updatedCounterValue = 0;
+  // counterElement.textContent = updatedCounterValue;
+
+  // for me this method is better
+  counterElement.textContent = 0;
+  counterElement.style.color = "black";
+}
+*/
+// =================================
+// method 2 - using addEventListener method
+// =================================
 
 // counter project end //
+
+/////////////////////////////////////
+// 003 - Input Element and Math Functions
+/////////////////////////////////////
+// console.log(Math.random()); // returns 0 - 1 like 0.123,04567
+
+// // The Math.ceil() function always rounds a number up to the next largest number.
+// console.log(Math.ceil(51.12)); // 52
+// console.log(Math.ceil(9.01)); // 10
+// console.log(Math.ceil(90.01)); // 91
+
+// getting random number from 1 to 100
+// console.log(Math.ceil(Math.random() * 100));
+// or
+// let randomNumber = Math.random() * 100; // returns between 0 to 100
+// // console.log(randomNumber);
+// randomNumber = Math.ceil(randomNumber); // returns from 1 to 100
+// console.log(randomNumber);
+
+// sign in form page
+// Input Element
+// Text Input
+// let inputElement = document.getElementById("inputElement");
+// let signInTextElement = document.getElementById("signInText");
+
+// function signIn() {
+//   let inputValue = inputElement.value;
+//   let verifyText = "Hi " + inputValue + ", verifying your account...";
+//   signInTextElement.textContent = verifyText;
+// }
+
+// Guessing Game start //
+/*
+let userInput = document.getElementById("userInput");
+let gameResult = document.getElementById("gameResult");
+let randomNumber = Math.ceil(Math.random() * 100);
+
+function checkGuess() {
+  let guessedNumber = parseInt(userInput.value);
+  // console.log(randomNumber);
+  if (guessedNumber > randomNumber) {
+    gameResult.textContent = "Too Hig! Try Again.";
+    gameResult.style.backgroundColor = "#1e217c";
+  } else if (guessedNumber < randomNumber) {
+    gameResult.textContent = "Too low! Try Again.";
+    gameResult.style.backgroundColor = "#1e217c";
+  } else if (guessedNumber === randomNumber) {
+    gameResult.textContent = "Congratulations! You got it right.";
+    gameResult.style.backgroundColor = "green";
+  } else {
+    gameResult.textContent = "Please Provide a valid user input.";
+    gameResult.style.backgroundColor = "red";
+  }
+}
+*/
+// Guessing Game end //
