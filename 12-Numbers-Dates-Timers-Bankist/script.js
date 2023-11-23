@@ -10,7 +10,7 @@
 // DIFFERENT DATA! Contains movement dates, currency and locale
 
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: 'Noblesse Raizel',
   movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
   interestRate: 1.2, // %
   pin: 1111,
@@ -21,7 +21,7 @@ const account1 = {
     '2020-01-28T09:15:04.904Z',
     '2020-04-01T10:17:24.185Z',
     '2020-05-08T14:11:59.604Z',
-    '2023-11-15T17:01:17.194Z',
+    '2020-07-26T17:01:17.194Z',
     '2020-07-28T23:36:17.929Z',
     '2020-08-01T10:51:36.790Z',
   ],
@@ -30,7 +30,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Anos Voldigod',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -86,7 +86,7 @@ const formatMovementDate = function (date, locale) {
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
 
   const daysPassed = calcDaysPassed(new Date(), date);
-  // console.log(daysPassed);
+  console.log(daysPassed);
 
   if (daysPassed === 0) return 'Today';
   if (daysPassed === 1) return 'Yesterday';
@@ -189,21 +189,21 @@ const startLogOutTimer = function () {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
     const sec = String(time % 60).padStart(2, 0);
 
-    // In each call, print the reamaining time to UI
+    // In each call, print the remaining time to UI
     labelTimer.textContent = `${min}:${sec}`;
 
-    // when 0 seconds, stop timer and log out user
+    // When 0 seconds, stop timer and log out user
     if (time === 0) {
       clearInterval(timer);
       labelWelcome.textContent = 'Log in to get started';
       containerApp.style.opacity = 0;
     }
 
-    // Decrese is
+    // Decrease 1s
     time--;
   };
   // Set time to 5 minutes
-  let time = 120;
+  let time = 300;
 
   // Call the timer every second
   tick();
@@ -215,7 +215,7 @@ const startLogOutTimer = function () {
 // Event handlers
 let currentAccount, timer;
 
-// // FAKE ALWAYS LOGGED IN
+// FAKE ALWAYS LOGGED IN
 // currentAccount = account1;
 // updateUI(currentAccount);
 // containerApp.style.opacity = 100;
@@ -293,7 +293,7 @@ btnTransfer.addEventListener('click', function (e) {
     receiverAcc.movements.push(amount);
 
     // Add transfer date
-    currentAccount.movements.push(new Date().toISOString());
+    currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
 
     // Update UI
